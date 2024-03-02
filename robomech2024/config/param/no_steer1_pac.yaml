@@ -1,5 +1,5 @@
 # 出力ファイルパス
-output_file: "/ws/src/data_matomerun/robomech2024/data/no_predict1/ped_avoid.csv"
+output_file: "/ws/src/data_matomerun/robomech2024/data/no_steer1/ped_avoid.csv"
 
 # 制御周波数[Hz]
 hz: 10                          # ループ周波数 [Hz]
