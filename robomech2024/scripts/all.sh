@@ -21,6 +21,9 @@ sleep30
 ./all_coco25.sh
 sleep 30
 
+./all_st25.sh
+sleep 30
+
 ./all_no_steer25.sh
 sleep30
 

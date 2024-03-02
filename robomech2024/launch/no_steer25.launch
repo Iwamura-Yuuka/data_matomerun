@@ -51,7 +51,7 @@
     <node pkg="rviz" type="rviz" name="ccv_rviz" args="-d $(find steering_path_planner)/config/debug_trj_test.rviz"/>
     
     <!-- =============== Simulator =============== -->
-    <!-- 歩行者50人 -->
+    <!-- 歩行者25人 -->
     <!-- param -->
     <arg name="kbd_teleop" default="false"/>
     <arg name="rqt_teleop" default="false"/>
