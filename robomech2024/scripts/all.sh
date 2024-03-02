@@ -19,4 +19,10 @@ sleep30
 sleep30
 
 ./all_coco25.sh
+sleep30
+
+./all_no_predict25.sh
+sleep30
+
+./all_expand25.sh
 exit 0
