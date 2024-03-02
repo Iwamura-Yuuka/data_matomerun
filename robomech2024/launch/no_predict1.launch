@@ -5,7 +5,7 @@
     <arg name="rviz_settings" default="$(find target_path_planner)/config/rviz/debug_with_ccv.rviz"/>
     <arg name="straight_line_creator_settings" default="$(find straight_line_creator)/config/param/straight_line_creator_debug.yaml"/>
     <arg name="local_goal_maker_settings" default="$(find local_goal_maker)/config/param/local_goal_maker_debug.yaml"/>
-    <arg name="pedestrian_state_predictor_settings" default="$(find pedestrian_state_predictor)/config/param/for_one_ped.yaml"/>
+    <arg name="pedestrian_state_predictor_settings" default="$(find pedestrian_state_predictor)/config/param/no_predict.yaml"/>
     <arg name="cost_map_creator_settings" default="$(find cost_map_creator)/config/param/for_one_ped.yaml"/>
     <arg name="target_path_planner_settings" default="$(find target_path_planner)/config/param/for_one_ped.yaml"/>
 
@@ -110,8 +110,8 @@
 
     <!-- =============== data_matomerun =============== -->
     <!-- config file path  -->
-    <arg name="human_dist_calculator_settings" default="$(find robomech2024)/config/param/coco1_hdc.yaml"/>
-    <arg name="ped_avoidance_calculator_settings" default="$(find robomech2024)/config/param/coco1_pac.yaml"/>
+    <arg name="human_dist_calculator_settings" default="$(find robomech2024)/config/param/no_predict1_hdc.yaml"/>
+    <arg name="ped_avoidance_calculator_settings" default="$(find robomech2024)/config/param/no_predict1_pac.yaml"/>
 
     <!-- node launch -->
     <node pkg="human_dist_calculator" type="human_dist_calculator_node" name="human_dist_calculator" output="screen">
