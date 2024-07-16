@@ -1,0 +1,18 @@
+# 出力ファイルパス
+dist_rmse_output_file: "/ws/src/data_matomerun/prediction_accuracy/data/50ped/mode2/dist.csv"
+vel_rmse_output_file: "/ws/src/data_matomerun/prediction_accuracy/data/50ped/mode2/vel.csv"
+yaw_rmse_output_file: "/ws/src/data_matomerun/prediction_accuracy/data/50ped/mode2/yaw.csv"
+
+# 制御周波数[Hz]
+hz: 10                          # ループ周波数 [Hz]
+
+# 障害物id
+id: 0
+
+# 予測時間
+horizon: 5.0    # 予測ホライズン [s]
+dt: 0.1         # 微小時間 [s]
+
+# ステップ数
+start_step: 10  # 開始ステップ数
+calc_step: 100  # RMSEを計算するステップ数
