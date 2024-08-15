@@ -1,19 +1,16 @@
 <?xml version="1.0"?>
 <launch>
+  <!-- wait and go -->
+  <!-- 直線を追従 -->
   <!-- config file path -->
-  <arg name="rviz_settings" default="$(find spaciss_dwa_planner)/config/rviz/debug.rviz"/>
+  <arg name="rviz_settings" default="$(find dual_pure_pursuit_planner)/config/rviz/debug.rviz"/>
   <arg name="straight_line_creator_settings" default="$(find straight_line_creator)/config/param/straight_line_creator_debug.yaml"/>
-  <arg name="local_goal_maker_settings" default="$(find local_goal_maker)/config/param/local_goal_maker_debug.yaml"/>
   <arg name="ped_state_transformer_settings" default="$(find ped_state_transformer)/config/param/debug.yaml"/>
   <arg name="spaciss_obs_map_creator_settings" default="$(find spaciss_obs_map_creator)/config/param/spaciss_obs_map_creator_debug.yaml"/>
 
   <!-- node launch -->
   <node pkg="straight_line_creator" type="straight_line_creator_node" name="straight_line_creator">
     <rosparam command="load" file="$(arg straight_line_creator_settings)"/>
-  </node>
-  <node pkg="local_goal_maker" type="local_goal_maker_node" name="local_goal_maker">
-    <rosparam command="load" file="$(arg local_goal_maker_settings)"/>
-    <remap from="/robot_odom" to="/sq2_ccv/diff_drive_steering_controller/odom"/>
   </node>
   <node pkg="ped_state_transformer" type="ped_state_transformer_node" name="ped_state_transformer">
     <rosparam command="load" file="$(arg ped_state_transformer_settings)"/>
@@ -29,12 +26,14 @@
 
   <!-- =============== Move ccv =============== -->
   <!-- config file path -->
-  <arg name="spaciss_dwa_planner_settings" default="$(find spaciss_dwa_planner)/config/param/for_one_ped.yaml"/>
+  <arg name="dual_pure_pursuit_planner_settings" default="$(find dual_pure_pursuit_planner)/config/param/no_steer.yaml"/>
 
   <!-- node launch -->
-  <node pkg="spaciss_dwa_planner" type="spaciss_dwa_planner_node" name="spaciss_dwa_planner" output="screen">
-    <rosparam command="load" file="$(arg spaciss_dwa_planner_settings)"/>
-    <remap from="/local/cmd_vel" to="/sq2_ccv/diff_drive_steering_controller/cmd_vel"/>
+  <node pkg="dual_pure_pursuit_planner" type="dual_pure_pursuit_planner_node" name="dual_pure_pursuit_planner" output="screen">
+   <rosparam command="load" file="$(arg dual_pure_pursuit_planner_settings)"/>
+   <remap from="/predicted_path" to="/global_path"/>
+   <remap from="/robot_odom" to="/sq2_ccv/diff_drive_steering_controller/odom"/>
+   <remap from="/local/cmd_vel" to="/sq2_ccv/diff_drive_steering_controller/cmd_vel"/>
   </node>
 
   <node name="steering_angle_publisher" pkg="ccv_pure_pursuit_steering" type="steering_angle_publisher"/>
@@ -99,8 +98,8 @@
 
   <!-- =============== data_matomerun =============== -->
   <!-- config file path -->
-  <arg name="performance_calculator_settings" default="$(find icam2024)/config/param/dwa1_pc.yaml"/>
-  <arg name="ped_avoidance_calculator_settings" default="$(find icam2024)/config/param/dwa1_pac.yaml"/>
+  <arg name="performance_calculator_settings" default="$(find icam2024)/config/param/wait_and_go1_pc.yaml"/>
+  <arg name="ped_avoidance_calculator_settings" default="$(find icam2024)/config/param/wait_and_go1_pac.yaml"/>
 
   <!-- node launch -->
   <node pkg="performance_calculator" type="performance_calculator_node" name="performance_calculator" output="screen">
