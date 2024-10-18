@@ -27,7 +27,13 @@
 ./all_cocobot_dwa50.sh
 sleep 30
 
-./all_cocobot_with_ccv50.sh
+# ./all_cocobot_with_ccv50.sh
+# sleep 30
+
+./all_rectangle_dwa50.sh
+sleep 30
+
+./all_rectangle_with_ccv50.sh
 sleep 30
 
 exit 0
